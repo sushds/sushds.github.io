@@ -7,19 +7,25 @@
   <meta name="description" content="Sushant Khare — data scientist working at the intersection of data governance, sustainability accountability, and AI systems." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0c0c0a;
-      --text: #ddd9ce;
-      --muted: #6b6860;
-      --dim: #333230;
-      --accent: #c4a35a;
-      --border: rgba(255,255,255,0.07);
-      --serif: 'EB Garamond', Georgia, serif;
-      --mono: 'Geist Mono', monospace;
+      --bg:        #0f0f1a;
+      --bg2:       #13131f;
+      --text:      #e0dff5;
+      --muted:     #7b78a8;
+      --dim:       #3a3858;
+      --accent:    #7c6af7;
+      --accent2:   #4ecdc4;
+      --accent3:   #f7c948;
+      --pixel:     #ff6b9d;
+      --border:    rgba(124,106,247,0.18);
+      --border2:   rgba(124,106,247,0.08);
+      --serif:     'EB Garamond', Georgia, serif;
+      --pixel-font:'Press Start 2P', monospace;
+      --mono:      'Share Tech Mono', monospace;
     }
 
     html { scroll-behavior: smooth; }
@@ -29,12 +35,27 @@
       color: var(--text);
       font-family: var(--mono);
       font-size: 14px;
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.75;
       -webkit-font-smoothing: antialiased;
-      max-width: 720px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 0 28px;
+      padding: 0 40px;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.05) 2px,
+        rgba(0,0,0,0.05) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
     }
 
     /* NAV */
@@ -42,17 +63,18 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 48px 0 80px;
+      padding: 44px 0 72px;
       opacity: 0;
       animation: up 0.5s ease 0.1s forwards;
     }
 
     .nav-name {
-      font-family: var(--serif);
-      font-size: 16px;
-      font-weight: 400;
-      color: var(--text);
+      font-family: var(--pixel-font);
+      font-size: 11px;
+      color: var(--accent);
       text-decoration: none;
+      letter-spacing: 0.04em;
+      text-shadow: 2px 2px 0 var(--dim);
     }
 
     .nav-links {
@@ -62,107 +84,116 @@
     }
 
     .nav-links a {
-      font-size: 12px;
+      font-family: var(--pixel-font);
+      font-size: 8px;
       color: var(--muted);
       text-decoration: none;
       letter-spacing: 0.06em;
-      transition: color 0.2s;
+      transition: color 0.15s;
     }
 
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover {
+      color: var(--accent2);
+      text-shadow: 0 0 8px rgba(78,205,196,0.6);
+    }
 
     /* HERO */
     .hero {
-      padding-bottom: 96px;
-      border-bottom: 1px solid var(--border);
+      padding-bottom: 88px;
+      border-bottom: 2px solid var(--border);
       opacity: 0;
       animation: up 0.6s ease 0.25s forwards;
     }
 
     .hero-kicker {
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 32px;
+      font-family: var(--pixel-font);
+      font-size: 8px;
+      letter-spacing: 0.1em;
+      color: var(--accent2);
+      margin-bottom: 28px;
+      text-shadow: 0 0 10px rgba(78,205,196,0.45);
     }
+
+    .hero-kicker::before { content: '> '; color: var(--pixel); }
 
     h1 {
       font-family: var(--serif);
-      font-size: clamp(44px, 7vw, 72px);
+      font-size: clamp(48px, 6.5vw, 80px);
       font-weight: 400;
-      line-height: 1.08;
+      line-height: 1.06;
       color: var(--text);
-      margin-bottom: 40px;
+      margin-bottom: 36px;
     }
 
     h1 em {
       font-style: italic;
       color: var(--accent);
+      text-shadow: 0 0 18px rgba(124,106,247,0.35);
     }
 
     .hero-body {
       font-size: 15px;
       line-height: 1.85;
       color: var(--muted);
-      max-width: 600px;
+      max-width: 700px;
     }
 
-    .hero-body p + p { margin-top: 20px; }
+    .hero-body p + p { margin-top: 18px; }
 
-    .hero-body strong {
-      color: var(--text);
-      font-weight: 400;
-    }
+    .hero-body strong { color: var(--text); font-weight: 400; }
 
     /* SECTIONS */
     section {
       padding: 80px 0;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--border2);
     }
 
     section:last-of-type { border-bottom: none; }
 
     .section-label {
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--dim);
+      font-family: var(--pixel-font);
+      font-size: 8px;
+      letter-spacing: 0.12em;
+      color: var(--accent);
       margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    /* WORK ENTRIES */
+    .section-label::before { content: '■'; color: var(--pixel); font-size: 7px; }
+
+    /* ENTRIES */
     .entry {
       display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 0 32px;
+      grid-template-columns: 160px 1fr;
+      gap: 0 48px;
       padding: 28px 0;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--border2);
     }
 
-    .entry:last-child { border-bottom: 1px solid var(--border); }
-
-    .entry-meta {
-      padding-top: 3px;
-    }
+    .entry:last-child { border-bottom: 1px solid var(--border2); }
 
     .entry-year {
       font-size: 11px;
-      letter-spacing: 0.08em;
       color: var(--dim);
-      line-height: 1.4;
+      line-height: 1.5;
+      padding-top: 3px;
     }
 
     .entry-org {
-      font-size: 11px;
-      color: var(--accent);
-      letter-spacing: 0.06em;
-      margin-top: 4px;
+      font-family: var(--pixel-font);
+      font-size: 7px;
+      color: var(--accent3);
+      letter-spacing: 0.04em;
+      margin-top: 6px;
+      line-height: 1.9;
+      text-shadow: 0 0 8px rgba(247,201,72,0.35);
     }
 
     .entry-title {
       font-family: var(--serif);
-      font-size: 19px;
+      font-size: 20px;
       font-weight: 400;
       color: var(--text);
       line-height: 1.25;
@@ -172,13 +203,10 @@
     .entry-body {
       font-size: 13px;
       color: var(--muted);
-      line-height: 1.75;
+      line-height: 1.78;
     }
 
-    .entry-body strong {
-      color: var(--text);
-      font-weight: 400;
-    }
+    .entry-body strong { color: var(--text); font-weight: 400; }
 
     .entry-tags {
       margin-top: 14px;
@@ -188,32 +216,61 @@
     }
 
     .tag {
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      color: var(--dim);
+      font-family: var(--pixel-font);
+      font-size: 7px;
+      color: var(--muted);
       border: 1px solid var(--dim);
-      padding: 2px 8px;
+      padding: 4px 8px;
+      line-height: 1.4;
+      background: var(--bg2);
+      transition: border-color 0.15s, color 0.15s;
     }
 
-    /* WRITING / THINKING */
+    .tag:hover { border-color: var(--accent); color: var(--accent); }
+
+    .entry-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      font-family: var(--pixel-font);
+      font-size: 7px;
+      color: var(--accent2);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      padding: 8px 14px;
+      border: 1px solid rgba(78,205,196,0.4);
+      background: rgba(78,205,196,0.04);
+      transition: background 0.15s, box-shadow 0.15s;
+    }
+
+    .entry-link::before { content: '▶ '; }
+
+    .entry-link:hover {
+      background: rgba(78,205,196,0.1);
+      box-shadow: 0 0 12px rgba(78,205,196,0.2);
+    }
+
+    /* NOTES */
     .note {
       padding: 24px 0;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--border2);
     }
 
-    .note:last-child { border-bottom: 1px solid var(--border); }
+    .note:last-child { border-bottom: 1px solid var(--border2); }
 
     .note-status {
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
+      font-family: var(--pixel-font);
+      font-size: 7px;
+      letter-spacing: 0.08em;
+      color: var(--pixel);
+      margin-bottom: 10px;
+      text-shadow: 0 0 8px rgba(255,107,157,0.35);
     }
 
     .note-title {
       font-family: var(--serif);
-      font-size: 18px;
+      font-size: 19px;
       font-weight: 400;
       color: var(--text);
       line-height: 1.3;
@@ -223,8 +280,71 @@
     .note-desc {
       font-size: 13px;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.75;
     }
+
+    /* PAPERS */
+    .paper {
+      padding: 24px 0;
+      border-top: 1px solid var(--border2);
+    }
+
+    .paper:last-child { border-bottom: 1px solid var(--border2); }
+
+    .paper-venue {
+      font-family: var(--pixel-font);
+      font-size: 7px;
+      letter-spacing: 0.08em;
+      color: var(--accent3);
+      margin-bottom: 8px;
+      text-shadow: 0 0 8px rgba(247,201,72,0.3);
+    }
+
+    .paper-title {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 6px;
+      text-decoration: none;
+      display: block;
+      transition: color 0.15s;
+    }
+
+    .paper-title:hover { color: var(--accent); }
+
+    .paper-authors {
+      font-size: 12px;
+      color: var(--dim);
+      margin-bottom: 10px;
+    }
+
+    .paper-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .paper-citations {
+      font-family: var(--pixel-font);
+      font-size: 7px;
+      color: var(--muted);
+      padding: 3px 8px;
+      border: 1px solid var(--dim);
+      background: var(--bg2);
+    }
+
+    .paper-link {
+      font-family: var(--pixel-font);
+      font-size: 7px;
+      color: var(--accent2);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.15s;
+    }
+
+    .paper-link:hover { color: var(--text); }
 
     /* CONTACT */
     .contact-line {
@@ -232,24 +352,34 @@
       justify-content: space-between;
       align-items: center;
       padding: 16px 0;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--border2);
       text-decoration: none;
       color: var(--muted);
       font-size: 13px;
-      transition: color 0.2s;
+      transition: color 0.15s;
     }
 
-    .contact-line:last-child { border-bottom: 1px solid var(--border); }
+    .contact-line:last-child { border-bottom: 1px solid var(--border2); }
     .contact-line:hover { color: var(--text); }
-    .contact-line span:last-child { color: var(--dim); transition: color 0.2s; }
-    .contact-line:hover span:last-child { color: var(--accent); }
+
+    .contact-arrow {
+      font-family: var(--pixel-font);
+      font-size: 8px;
+      color: var(--dim);
+      transition: color 0.15s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .contact-line:hover .contact-arrow { color: var(--accent); transform: translateX(4px); }
 
     /* FOOTER */
     footer {
       padding: 48px 0;
-      font-size: 11px;
+      font-family: var(--pixel-font);
+      font-size: 7px;
       color: var(--dim);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
+      line-height: 2.2;
     }
 
     /* ANIMATIONS */
@@ -260,41 +390,43 @@
 
     .reveal {
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(14px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
     }
 
     .reveal.in { opacity: 1; transform: none; }
 
     /* MOBILE */
-    @media (max-width: 600px) {
+    @media (max-width: 680px) {
       body { padding: 0 20px; }
-      nav { padding: 36px 0 60px; }
-      .entry { grid-template-columns: 1fr; gap: 8px; }
-      .entry-meta { display: flex; gap: 12px; align-items: baseline; }
+      nav { padding: 32px 0 52px; }
+      .nav-links { display: none; }
+      .entry { grid-template-columns: 1fr; gap: 6px; }
+      h1 { font-size: 42px; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-name" href="#">Sushant Khare</a>
+  <a class="nav-name" href="#">SK</a>
   <ul class="nav-links">
-    <li><a href="#work">Work</a></li>
-    <li><a href="#thinking">Thinking</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#work">work</a></li>
+    <li><a href="#thinking">thinking</a></li>
+    <li><a href="#papers">papers</a></li>
+    <li><a href="#contact">contact</a></li>
   </ul>
 </nav>
 
 <div class="hero">
-  <p class="hero-kicker">The Netherlands · Data Science & AI Governance</p>
+  <p class="hero-kicker">The Netherlands · Data Science &amp; AI Governance</p>
   <h1>Where data meets<br /><em>accountability.</em></h1>
   <div class="hero-body">
     <p>
       I'm working on problems where data models have real stakes — sustainability disclosures that end up in annual reports, ML systems that run at scale, and governance frameworks built from scratch without a clear template.
     </p>
     <p>
-      At <strong>bol </strong>, I own the CO₂ emissions data models that feed board-level sustainability disclosures, validated at reasonable assurance every quarter. Before that, risk and controls consulting at Protiviti, modern data stack builds at Apolix, and an MSc in Business Analytics from <strong>TIAS School for Business and Society, Tilburg University</strong>, Cum Laude.
+      At <strong>bol</strong>, I own the CO₂ emissions data models that feed board-level sustainability disclosures, validated at reasonable assurance every quarter. Before that, risk and controls consulting at Protiviti, modern data stack builds at Apolix, and an MSc in Business Analytics from <strong>TIAS School for Business and Society, Tilburg University</strong>, Cum Laude.
     </p>
     <p>
       I'm also drawn to questions that don't have clean answers yet — how AI compute should be governed, how AI will affect our society, whether ESG disclosures are actually verifiable, what good decision-making looks like under structural uncertainty. That curiosity tends to show up in everything I build.
@@ -306,9 +438,9 @@
   <p class="section-label">Selected work</p>
 
   <div class="entry reveal">
-    <div class="entry-meta">
+    <div>
       <div class="entry-year">2023 — now</div>
-      <div class="entry-org">bol · Ahold Delhaize</div>
+      <div class="entry-org">bol </div>
     </div>
     <div>
       <div class="entry-title">CO₂ Emissions Data Model — board-level disclosure</div>
@@ -320,15 +452,10 @@
       <div class="entry-tags">
         <span class="tag">BigQuery</span><span class="tag">dbt</span><span class="tag">GHG Protocol</span><span class="tag">ESRS E1</span><span class="tag">Internal Controls</span>
       </div>
-    </div>
-  </div>
+      <a class="entry-link" href="https://sushds.github.io/co2-tree" target="_blank" rel="noopener">
+        View CO₂ emissions tree
+      </a>
 
-  <div class="entry reveal">
-    <div class="entry-meta">
-      <div class="entry-year">2023 — now</div>
-      <div class="entry-org">bol</div>
-    </div>
-    <div>
       <div class="entry-title">Homepage personalisation via Multi-Armed Bandit</div>
       <div class="entry-body">
         Improved a Thompson Sampling-based MAB system — a self-learning (RL) system that continuously updates beliefs on click-through rates across banner variants. Delivered <strong>2–5% CTR uplift per campaign</strong>.
@@ -340,7 +467,7 @@
   </div>
 
   <div class="entry reveal">
-    <div class="entry-meta">
+    <div>
       <div class="entry-year">2022 — 2023</div>
       <div class="entry-org">Protiviti</div>
     </div>
@@ -356,9 +483,9 @@
   </div>
 
   <div class="entry reveal">
-    <div class="entry-meta">
+    <div>
       <div class="entry-year">2021</div>
-      <div class="entry-org">Apolix</div>
+      <div class="entry-org">Apolix</div>F
     </div>
     <div>
       <div class="entry-title">Full BI stack modernisation — freight forwarding</div>
@@ -374,7 +501,7 @@
 </section>
 
 <section id="thinking">
-  <p class="section-label">Research & thinking</p>
+  <p class="section-label">Research &amp; thinking</p>
 
   <div class="note reveal">
     <div class="note-status">In progress — research paper</div>
@@ -394,12 +521,12 @@
 
   <div class="note reveal">
     <div class="note-status">Learning arc</div>
-    <div class="note-title">AI Safety/Alignment</div>
+    <div class="note-title">AI Safety / Alignment</div>
     <div class="note-desc">
-     Participating in the AFFINE Seminar along with other like-minded researchers and professionals in a hybrid cohort for a month to deep-dive into alignment issues. 
+      Participating in the AFFINE Seminar along with other like-minded researchers and professionals in a hybrid cohort for a month to deep-dive into alignment issues.
     </div>
   </div>
-  
+
   <div class="note reveal">
     <div class="note-status">Learning arc</div>
     <div class="note-title">European energy markets, from first principles</div>
@@ -410,31 +537,76 @@
 
 </section>
 
+<section id="papers">
+  <p class="section-label">Earlier published work</p>
+
+  <div class="paper reveal">
+    <div class="paper-venue">IFAC-PapersOnLine · Elsevier · 2016</div>
+    <a class="paper-title" href="https://www.sciencedirect.com/science/article/pii/S2405896316301574" target="_blank" rel="noopener">
+      Control education in India: present &amp; future
+    </a>
+    <div class="paper-authors">Bajpai, S., Khare, S., Yadav, R.</div>
+    <div class="paper-meta">
+      <span class="paper-citations">★ 22 citations</span>
+      <a class="paper-link" href="https://www.sciencedirect.com/science/article/pii/S2405896316301574" target="_blank" rel="noopener">view paper →</a>
+    </div>
+  </div>
+
+  <div class="paper reveal">
+    <div class="paper-venue">IEEE ICPCES · 2014</div>
+    <a class="paper-title" href="https://ieeexplore.ieee.org/abstract/document/7062808/" target="_blank" rel="noopener">
+      Control engineering education in India
+    </a>
+    <div class="paper-authors">Khare, S., Chowdhry, S., Bajpai, S.</div>
+    <div class="paper-meta">
+      <span class="paper-citations">★ 16 citations</span>
+      <a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/7062808/" target="_blank" rel="noopener">view paper →</a>
+    </div>
+  </div>
+
+  <div class="paper reveal">
+    <div class="paper-venue">Management and Production Engineering Review · Polish Academy of Sciences · 2015</div>
+    <a class="paper-title" href="http://psjd.icm.edu.pl/psjd/element/bwmeta1.element.oai-journals-pan-pl-89590/c/oai-journals-pan-pl-89590_full-text_4-Khare.pdf-1" target="_blank" rel="noopener">
+      Production engineering education in India
+    </a>
+    <div class="paper-authors">Khare, S., Bajpai, S., Bharati, P.K.</div>
+    <div class="paper-meta">
+      <a class="paper-link" href="http://psjd.icm.edu.pl/psjd/element/bwmeta1.element.oai-journals-pan-pl-89590/c/oai-journals-pan-pl-89590_full-text_4-Khare.pdf-1" target="_blank" rel="noopener">view paper →</a>
+    </div>
+  </div>
+
+  <div style="margin-top: 24px;" class="reveal">
+    <a class="entry-link" href="https://scholar.google.com/citations?user=MYHA1BUAAAAJ&hl=en" target="_blank" rel="noopener">
+      Full list on Google Scholar
+    </a>
+  </div>
+
+</section>
+
 <section id="contact">
   <p class="section-label">Contact</p>
 
   <a class="contact-line" href="mailto:khareysushant@gmail.com">
     <span>khareysushant@gmail.com</span>
-    <span>→</span>
+    <span class="contact-arrow">→</span>
   </a>
   <a class="contact-line" href="https://linkedin.com/in/sushantkhare" target="_blank" rel="noopener">
     <span>linkedin.com/in/sushantkhare</span>
-    <span>→</span>
+    <span class="contact-arrow">→</span>
   </a>
   <a class="contact-line" href="https://github.com/sushds" target="_blank" rel="noopener">
     <span>github.com/sushds</span>
-    <span>→</span>
+    <span class="contact-arrow">→</span>
   </a>
 
-  <div style="margin-top: 48px; font-size: 13px; color: var(--muted); line-height: 1.8; max-width: 520px;">
+  <div style="margin-top: 48px; font-size: 13px; color: var(--muted); line-height: 1.9; max-width: 600px;">
     MSc Business Analytics, Tilburg University — Cum Laude<br />
-    B.Tech Electronics & Telecom, Integral University — Gold Medal<br />
-    <span style="color: var(--dim);">Amstelveen, The Netherlands</span>
+    B.Tech Electronics &amp; Telecom, Integral University — Gold Medal<br />
   </div>
 </section>
 
 <footer>
-  © 2026 Sushant Khare
+  © 2026 Sushant Khare &nbsp;·&nbsp; Amstelveen, NL
 </footer>
 
 <script>
@@ -445,10 +617,13 @@
         obs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.06, rootMargin: '0px 0px -32px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
